@@ -1,0 +1,51 @@
+#deleteform{
+    display: inline;
+}
+.jumbotron {
+    background-color: #C0C0C0;
+}
+.navbar {
+    margin-bottom: 0px;
+}
+.Guide{
+    text-align: center;
+    font-family:Arial;
+}
+
+p{
+    font-family:Arial;
+}
+.button{
+    text-align: center;
+    margin : 40px;
+
+
+}
+.SearchForm{
+    font-family:Arial;
+}
+.trademark {
+  text-align:  center;
+  margin-top: 200px;
+  height: 15px;
+}
+input[type="checkbox"]+label::before{
+    content: '\a0';
+    display: inline-block;
+    vertical-align: .2em;
+    width: .8em;
+    height: .8em;
+    margin-right: .2em;
+    border-radius: .2em;
+    background: silver;
+    text-indent: .15em;
+    line-height: .65;
+}
+input[type="checkbox"]:checked + label::before {
+    content: '\2713';
+    background: yellowgreen;
+}
+input[type="checkbox"]{
+    position: absolute;
+    clip: rect(0,0,0,0)
+}

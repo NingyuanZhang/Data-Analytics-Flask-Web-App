@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Here is the overall result:</h2>
+
+
+    <div class="result" style="text-align: center;font-family:Arial;">
+      <h3>sent = {{numResult[0]}}</h3>
+      <h3>delivered = {{numResult[1]}}</h3>
+      <h3>delivery rate = {{numResult[2]}}</h3>
+      <h3>open rate = {{numResult[3]}}</h3>
+      <h3>click rate = {{numResult[4]}}</h3>
+    </div>
+
+    <h2>Here is the results by year and by month for 2018 and 2019:</h2>
+    <div class="table" style="text-align: center; margin-left: 200px">
+      {% for table in dfResult %}
+
+              <h4>{{ table|safe }}</h4>
+      {% endfor %}
+    </div>
+
+    <div class="button">
+      <a href="/search" class="btn btn-info">Back</a>
+    </div>
+
+    {% endblock %}

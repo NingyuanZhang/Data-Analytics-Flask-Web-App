@@ -1,0 +1,14 @@
+
+body{
+  background: #C0C0C0;
+}
+#home-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 40vh;
+}
+
+#home-header h1 {
+  color: #fff;
+}

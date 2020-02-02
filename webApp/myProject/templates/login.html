@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <form method="POST" style="text-align: center; margin-top:10px">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+    <div style="text-align: center; margin-left:5px; margin-right:5px;">
+      {{ form.email.label }} {{ form.email() }}
+    </div>
+    <div style="text-align: center; margin-top:10px; margin-bottom:10px;">
+    {{ form.password.label }} {{ form.password() }}
+    </div>
+    {{ form.submit() }}
+</form>
+</div>
+
+
+{% endblock %}

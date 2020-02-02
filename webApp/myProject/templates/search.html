@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GoSearch</title>
+	<link rel="stylesheet" href=https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css>
+  <link rel="stylesheet" href="/static/css/main.css">
+
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">GoSearch</a>
+            <a class="navbar-brand" href="/search">New Search</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                {% if current_user.is_authenticated %}
+                <li><a href="#">Hi {{current_user.username}}</a></li>
+                <li><a href="{{ url_for('logout') }}">Log out</a></li>
+                {%  else  %}
+                <li><a href="{{ url_for('login') }}">Log in</a></li>
+                <li><a href={{ url_for('register') }}>Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron">
+      <div class="container">
+      {% if current_user.is_authenticated %}
+        <p>Hi {{ current_user.username }}!</p>
+      {% else %}
+        <p>Welcome!</p>
+        <p>Please login or register!</p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="Guide">
+    <h2>Please select your templates</h2>
+  </div>
+
+<div class="container">
+    <form class="SearchForm"  method="post" name = "form1">
+			<div class="button">
+				<input type="reset" value="Reset" style="margin-right:10px;background-color: #e7e7e7; color: black;">
+				<button type="submit" onclick="find();" style="margin-right:10px;background-color: #e7e7e7; color: black;">Get Result</button>
+	      <button type="submit" onclick="download()" style="margin-right:10px;background-color: #e7e7e7; color: black;">Download Report</button>
+			</div>
+      <div class="checkbox">
+				<input type="checkbox" name="choices" id="checkbox0" value="NJ-WAREHOUSE-NOV2018" unchecked>
+				<label for="checkbox0">NJ-WAREHOUSE-NOV2018</label>
+        <input type="checkbox" name="choices" id="checkbox1" value="NEW COLLECTION - MAY 2018" unchecked>
+        <label for="checkbox1">NEW COLLECTION - MAY 2018</label>
+        <input type="checkbox" name="choices" id="checkbox2" value="NEW COLLECTION - OCTOBER 2018" unchecked>
+        <label for="checkbox2">NEW COLLECTION - OCTOBER 2018</label>
+				<input type="checkbox" name="choices" id="checkbox3" value="PICTO-C1-NOV-2018" unchecked>
+        <label for="checkbox3">PICTO-C1-NOV-2018</label>
+				<input type="checkbox" name="choices" id="checkbox4" value="PICTO-C2-NOV-2018" unchecked>
+        <label for="checkbox4">PICTO-C2-NOV-2018</label>
+				<input type="checkbox" name="choices" id="checkbox5" value="PICTO-C3-NOV-2018" unchecked>
+				<label for="checkbox5">PICTO-C3-NOV-2018</label>
+				<input type="checkbox" name="choices" id="checkbox6" value="PICTO-C4-NOV-2018" unchecked>
+				<label for="checkbox6">PICTO-C4-NOV-2018</label>
+				<input type="checkbox" name="choices" id="checkbox7" value="PICTO-C5-NOV-2018" unchecked>
+				<label for="checkbox7">PICTO-C5-NOV-2018</label>
+				<input type="checkbox" name="choices" id="checkbox8" value="PICTO-C6-NOV-2018" unchecked>
+				<label for="checkbox8">PICTO-C6-NOV-2018</label>
+				<input type="checkbox" name="choices" id="checkbox9" value="PICTO-LABORDAY-2019" unchecked>
+				<label for="checkbox9">PICTO-LABORDAY-2019</label>
+				<input type="checkbox" name="choices" id="checkbox10" value="PICTO-OPTIN-AUG-2019" unchecked>
+				<label for="checkbox10">PICTO-OPTIN-AUG-2019</label>
+				<input type="checkbox" name="choices" id="checkbox11" value="PICTO-P1-NOV-2018" unchecked>
+				<label for="checkbox11">PICTO-P1-NOV-2018</label>
+				<input type="checkbox" name="choices" id="checkbox12" value="PICTO-P2-NOV-2018" unchecked>
+				<label for="checkbox12">PICTO-P2-NOV-2018</label>
+				<input type="checkbox" name="choices" id="checkbox13" value="PICTO-P3-NOV-2018" unchecked>
+				<label for="checkbox13">PICTO-P3-NOV-2018</label>
+				<input type="checkbox" name="choices" id="checkbox14" value="PICTO-P4-NOV-2018" unchecked>
+				<label for="checkbox14">PICTO-P4-NOV-2018</label>
+				<input type="checkbox" name="choices" id="checkbox15" value="PICTO-P5-NOV-2018" unchecked>
+				<label for="checkbox15">PICTO-P5-NOV-2018</label>
+				<input type="checkbox" name="choices" id="checkbox16" value="PICTO-P6-NOV-2018" unchecked>
+				<label for="checkbox16">PICTO-P6-NOV-2018</label>
+				<input type="checkbox" name="choices" id="checkbox17" value="PICTO-REACTIVATION-PROSPECTS-JAN25-2019" unchecked>
+				<label for="checkbox17">PICTO-REACTIVATION-PROSPECTS-JAN25-2019</label>
+				<input type="checkbox" name="choices" id="checkbox18" value="RB - PERFORMANCE - Collectors - S3" unchecked>
+				<label for="checkbox18">RB - PERFORMANCE - Collectors - S3</label>
+				<input type="checkbox" name="choices" id="checkbox19" value="RB ONBOARDING E2 NE" unchecked>
+				<label for="checkbox19">RB ONBOARDING E2 NE</label>
+				<input type="checkbox" name="choices" id="checkbox20" value="RB Onboarding E1 CALI" unchecked>
+				<label for="checkbox20">RB Onboarding E1 CALI</label>
+				<input type="checkbox" name="choices" id="checkbox21" value="RB Onboarding E1 CANADA ENG" unchecked>
+				<label for="checkbox21">RB Onboarding E1 CANADA ENG</label>
+				<input type="checkbox" name="choices" id="checkbox22" value="RB Onboarding E1 CANADA FRA" unchecked>
+				<label for="checkbox22">RB Onboarding E1 CANADA FRA</label>
+				<input type="checkbox" name="choices" id="checkbox23" value="RB Onboarding E1 DCFL" unchecked>
+				<label for="checkbox23">RB Onboarding E1 DCFL</label>
+				<input type="checkbox" name="choices" id="checkbox24" value="RB Onboarding E1 DCFL TEST" unchecked>
+				<label for="checkbox24">RB Onboarding E1 DCFL TEST</label>
+				<input type="checkbox" name="choices" id="checkbox25" value="RB Onboarding E1 NE" unchecked>
+				<label for="checkbox25">RB Onboarding E1 NE</label>
+				<input type="checkbox" name="choices" id="checkbox26" value="RB Onboarding E1-June-2016" unchecked>
+				<label for="checkbox26">RB Onboarding E1-June-2016</label>
+				<input type="checkbox" name="choices" id="checkbox27" value="RB Onboarding E2 CALI" unchecked>
+				<label for="checkbox27">RB Onboarding E2 CALI</label>
+				<input type="checkbox" name="choices" id="checkbox28" value="RB Onboarding E2 CALI TEST" unchecked>
+				<label for="checkbox28">RB Onboarding E2 CALI TEST</label>
+				<input type="checkbox" name="choices" id="checkbox29" value="RB Onboarding E2 CANADA ENG" unchecked>
+				<label for="checkbox29">RB Onboarding E2 CANADA ENG</label>
+				<input type="checkbox" name="choices" id="checkbox30" value="RB Onboarding E2 CANADA FRA" unchecked>
+				<label for="checkbox30">RB Onboarding E2 CANADA FRA</label>
+				<input type="checkbox" name="choices" id="checkbox31" value="RB Onboarding E2 DCFL" unchecked>
+				<label for="checkbox31">RB Onboarding E2 DCFL</label>
+				<input type="checkbox" name="choices" id="checkbox23" value="RB Onboarding E1 DCFL" unchecked>
+				<label for="checkbox23">RB Onboarding E1 DCFL</label>
+				<input type="checkbox" name="choices" id="checkbox23" value="RB Onboarding E1 DCFL" unchecked>
+				<label for="checkbox23">RB Onboarding E1 DCFL</label>
+				<input type="checkbox" name="choices" id="checkbox23" value="RB Onboarding E1 DCFL" unchecked>
+				<label for="checkbox23">RB Onboarding E1 DCFL</label>
+      </div>
+      <style type="text/css">
+    	.checkbox{ vertical-align:middle; margin:20px;margin-left:20px;margin-right:20px;margin-top:20px;margin-bottom:20px;height:15px; padding:0;}
+      </style>
+    </form>
+</div>
+
+
+		<div class="trademark">
+
+			<p >TRADEMARK 2019</p>
+		</div>
+
+
+    </body>
+    </html>
+
+<script>
+    function find(){
+        document.form1.action='/getRes';
+        document.form1.submit();
+    }
+    function download() {
+        document.form1.action = '/downloadCSV';
+        document.form1.submit();
+    }
+</script>
