@@ -15,7 +15,7 @@ Please refer to dataAnalysis.ipynb for more details.
 ## Part 2
 
 ### Live demo
-To see the app in action, go to https://my-data-analytics-web-app.herokuapp.com/.You can log in with username: example@example.com and password: password.
+To see the app in action, go to https://my-data-analytics-web-app.herokuapp.com/ You can log in with username: example@example.com and password: password.
 * Why choose Flask?
 Flask is a lighter weight framework for Python. Since we already finish the Python code for data analysis part, it's more convenient to use Python to finish the back-end programming. 
 * Allow users to pick templates, get corresponding results and download report.
