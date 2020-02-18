@@ -1,26 +1,76 @@
 {% extends "base.html" %}
+
+{% block head %}
+    {{  super()  }}
+		<link rel="stylesheet" href="/static/css/showRes.css">
+{% endblock %}
+
 {% block content %}
-    <h2>Here is the overall result:</h2>
+    <div class="content">
+      <div id="page-breadcrumb" class="Guide">
+        <div class="pickedT">
+          <h3 style="margin-left:60px; margin-bottom: 15px">Picked templates: </h3>
+          {% for i in range(numTemp) %}
+          <label for="">{{choices_t[i]}}</label>
+          {% endfor %}
+        </div>
+      </div>
+      <div  class="table" >
+        <h3 style="font-family:Lato;">The results from <span style="color: #855b2e; font-weight: 600;">
+          {{startDate}}</span> to <span style="color: #855b2e; font-weight: 600;">{{endDate}}</span> </h3>
+        <br>
 
+        <button onclick="show('month')" class="btn btn-info" style="border: none;  margin-bottom: 10px; background: #b3b3b3;color: white;"
+        onmouseover="this.style.backgroundColor='#D29948';" onmouseout="this.style.backgroundColor='#b3b3b3';">Display by Month</button>
+        <button onclick="show('day')" class="btn btn-info" style="border: none;  margin-bottom: 10px; background: #b3b3b3;color: white;"
+        onmouseover="this.style.backgroundColor='#D29948';" onmouseout="this.style.backgroundColor='#b3b3b3';">Display by Day</button>
+        <div id="month">
+          {% for table in dfResult %}
+              <h5 style="text-align:center; margin-left: 110px;">{{ table|safe }}</h5>
+          {% endfor %}
+        </div>
+        <div id="day">
+          {% for table in dfDay %}
+              <h5 style="text-align:center; margin-left: 100px;">{{ table|safe }}</h5>
+          {% endfor %}
+        </div>
+      </div>
 
-    <div class="result" style="text-align: center;font-family:Arial;">
-      <h3>sent = {{numResult[0]}}</h3>
-      <h3>delivered = {{numResult[1]}}</h3>
-      <h3>delivery rate = {{numResult[2]}}</h3>
-      <h3>open rate = {{numResult[3]}}</h3>
-      <h3>click rate = {{numResult[4]}}</h3>
+      <div class="result" style="font-family:Lato;font-size: 20px;text-align:center;">
+        <h3 style="margin-bottom: 15px;text-align:center;margin-right:0px;">Overall result:</h3>
+        <h5 >Sent = {{numResult[0]}}</h5>
+        <h5>Delivered = {{numResult[1]}}</h5>
+        <h5>Delivery Rate = {{numResult[2]}}</h5>
+        <h5>Open Rate = {{numResult[3]}}</h5>
+        <h5>Click Rate = {{numResult[4]}}</h5>
+      </div>
+
+      <div class="button">
+        <a href="/" class="btn btn-info" style="border: none;  margin-top: 10px; background: #b3b3b3;color: white;"
+        onmouseover="this.style.backgroundColor='#D29948';" onmouseout="this.style.backgroundColor='#b3b3b3';">Back</a>
+      </div>
     </div>
 
-    <h2>Here is the results by year and by month for 2018 and 2019:</h2>
-    <div class="table" style="text-align: center; margin-left: 200px">
-      {% for table in dfResult %}
 
-              <h4>{{ table|safe }}</h4>
-      {% endfor %}
-    </div>
 
-    <div class="button">
-      <a href="/search" class="btn btn-info">Back</a>
-    </div>
+{% endblock %}
 
-    {% endblock %}
+
+{% block footer %}
+<script>
+
+  document.getElementById("month").style.display='block';
+  document.getElementById("day").style.display='none';
+function show(id) {
+  if(id=='month'){
+  document.getElementById("month").style.display='block';
+  document.getElementById("day").style.display='none';
+}else if(id=='day'){
+  document.getElementById("month").style.display='none';
+  document.getElementById("day").style.display='block';
+  }
+}
+
+
+</script>
+{% endblock %}

@@ -1,0 +1,48 @@
+
+
+.Guide{
+    text-align: left;
+    margin-top: 0px;
+    margin-bottom:10px;
+    margin-left:0px;
+    margin-right:0px;
+    border-bottom: 1px solid #F9F2E8;
+    border-top: 1px solid #F9F2E8;
+}
+.result{
+    border-top: 1px solid #F9F2E8;
+  
+
+}
+.result p{
+    margin-left:60px;
+    font-size: 15px;
+}
+.pickedT label{
+    margin-left:60px;
+    font-size: 15px;
+    color: #855b2e;
+}
+
+.pickedT{
+}
+
+.table{
+  font-family:Lato;
+  text-align: center;
+  margin-left: 0px;
+  margin-top: 10px;
+  padding: 10px 90px 10px 90px;
+
+}
+
+#page-breadcrumb {
+  background-image: url(../images/tour-bg.png);
+  background-color: #fbfafa;
+  background-repeat: repeat-x;
+  height: 130px;
+  background-position: center;
+  display: table;
+  position: static;
+  width: 100%;
+}

@@ -1,0 +1,71 @@
+
+.Guide{
+    text-align: left;
+    font-family: Lato;
+    margin-top: 0px;
+    margin-bottom:30px;
+    margin-left:0px;
+    margin-right:0px;
+    border-bottom: 1px solid #F9F2E8;
+    border-top: 1px solid #F9F2E8;
+}
+
+.SearchForm{
+    text-align: left;
+    font-family: Lato;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.uploafForm{
+    margin-left:100px;
+    margin-bottom: 20px;
+}
+.Choices{
+  text-align: left;
+  font-family: Lato;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 100px;
+  margin-right: 0px;
+}
+
+input[type="checkbox"]+label::before{
+    content: '\a0';
+    display: inline-block;
+    vertical-align: .2em;
+    width: .8em;
+    height: .8em;
+    margin-right: .2em;
+    border-radius: .2em;
+    background: silver;
+    text-indent: .15em;
+    line-height: .65;
+}
+input[type="checkbox"]:checked + label::before {
+    content: '\2713';
+    background: #D29948;
+}
+input[type="checkbox"]{
+    position: absolute;
+    clip: rect(0,0,0,0)
+}
+
+.buttons{
+  text-align: center;
+  margin-top: 50px;
+
+}
+
+
+#page-breadcrumb {
+  background-image: url(../images/tour-bg.png);
+  background-color: #fbfafa;
+  background-repeat: repeat-x;
+  height: 130px;
+  background-position: center;
+  display: table;
+  position: static;
+  width: 100%;
+}
